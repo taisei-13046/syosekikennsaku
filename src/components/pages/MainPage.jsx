@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { CsvButton } from "../atoms/CsvButton";
-import { Search } from "../organisms/Search";
 import { IsbnTable } from "../templates/IsbnTable";
 import { Title } from "../templates/Title";
+import styled from "styled-components";
+import { Search } from "../molecules/Search";
+
 
 export const MainPage = () => {
+	const [isbn, setIsbn] = useState('');
+	const [data, setData] = useState([]);
 	return (
 		<>
-			<Title />
-			<Search />
-			<IsbnTable />
-			<CsvButton />
+			<Sdiv>
+				<Title />
+				<Search isbn={isbn} setIsbn={setIsbn} data={data} setData={setData} />
+				<IsbnTable />
+				<CsvButton />
+			</Sdiv>
 		</>
 	)
 }
+
+const Sdiv = styled.div`
+text-align:center;
+`

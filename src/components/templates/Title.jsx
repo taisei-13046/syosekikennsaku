@@ -1,5 +1,4 @@
 import React from "react";
-import { Search } from "../organisms/Search";
 
 export const Title = () => {
 	return (
