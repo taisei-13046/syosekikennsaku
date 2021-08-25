@@ -15,7 +15,7 @@ export const MainPage = () => {
 				<Title />
 				<Search isbn={isbn} setIsbn={setIsbn} data={data} setData={setData} />
 				<IsbnTable data={data} setData={setData} />
-				<CsvButton />
+				<CsvButton data={data} />
 			</Sdiv>
 		</>
 	)
