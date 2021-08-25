@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const Search = (props) => {
   const { isbn, setIsbn, data, setData } = props;
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(1);
   const classes = useStyles();
 
   const onClickButton = () => {
@@ -24,7 +24,6 @@ export const Search = (props) => {
 	// 楽天書籍検索API
     axios.get(`https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=${replacedIsbn}&applicationId=1000015805478906388`)
 	.then((res) => {
-		console.log(res.data.Items[0].Item)
 		const bookData = res.data.Items[0].Item;
 		setId(id+1)
 		setData([
