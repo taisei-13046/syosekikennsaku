@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
       width: "20ch",
     },
   },
+  text: {
+	  backgroundColor: "white"
+  }
 }));
 
 export const Search = (props) => {
@@ -19,8 +22,8 @@ export const Search = (props) => {
   const classes = useStyles();
 
   const onClickButton = () => {
-	// -　があるISBNコードでも対応する
-	const replacedIsbn = isbn.replace('-', '')
+	// -　があるISBNコードでも対応する 正規表現にすると全て置換できる
+	const replacedIsbn = isbn.replace(/-/g, '')
 	// 楽天書籍検索API
     axios.get(`https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=${replacedIsbn}&applicationId=1000015805478906388`)
 	.then((res) => {
@@ -51,6 +54,7 @@ export const Search = (props) => {
           label="isbnコード"
           variant="outlined"
           onChange={(e) => setIsbn(e.target.value)}
+		  className={classes.text}
         />
       </form>
       <div className={classes.root}>

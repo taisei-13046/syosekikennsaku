@@ -9,6 +9,15 @@ const useStyles = makeStyles((theme) => ({
 		margin: theme.spacing(1),
 	  },
 	},
+	button: {
+		backgroundColor: "white",
+		marginTop: "30px",
+		marginBottom: "30px",
+		height: "50px",
+		width: "200px",
+		fontWeight: "bold",
+		fontSize: "15px",
+	}
   }));
 
 const headers = [
@@ -24,10 +33,9 @@ export const CsvButton = (props) => {
 	const classes = useStyles();
 
 	return (
-
 			<div className={classes.root}>
 				<CSVLink data={data} headers={headers}>
-					<Button variant="outlined">CSV化する</Button>
+					<Button variant="outlined" className={classes.button} >CSV化する</Button>
 				</CSVLink>
 			</div>
 	)

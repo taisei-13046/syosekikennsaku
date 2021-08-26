@@ -35,6 +35,7 @@ export const IsbnTable = (props) => {
         checkboxSelection
         disableSelectionOnClick
         onSelectionModelChange={(v) => selRows.current = v} /* チェックが入った行をselRowsに入れる(配列) */
+        style={{ backgroundColor: "white" }}
       />
     </div>
   );
