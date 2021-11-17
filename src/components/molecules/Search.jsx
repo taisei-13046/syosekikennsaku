@@ -25,12 +25,11 @@ export const Search = (props) => {
 	// -　があるISBNコードでも対応する 正規表現にすると全て置換できる
 	const replacedIsbn = isbn.replace(/-/g, '')
 	// 楽天書籍検索API
-    axios.get(`https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=${replacedIsbn}&applicationId=1000015805478906388`)
+  axios.get(`https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=${replacedIsbn}&applicationId=1000015805478906388`)
 	.then((res) => {
 		const bookData = res.data.Items[0].Item;
 		setId(id+1)
 		setData([
-			...data,
 			{
 				id: id,
 				title: bookData.title,
@@ -39,11 +38,13 @@ export const Search = (props) => {
 				isbn: bookData.isbn,
 				price: bookData.itemPrice
 			},
+			...data,
 		])
 	})
 	.catch((error) => {
 		console.log(error)
 	});
+  setIsbn("")
   };
 
   return (
@@ -53,8 +54,9 @@ export const Search = (props) => {
           id="outlined-basic"
           label="isbnコード"
           variant="outlined"
+          value={isbn}
           onChange={(e) => setIsbn(e.target.value)}
-		  className={classes.text}
+          className={classes.text}
         />
       </form>
       <div className={classes.root}>

@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core';
 
 const columns = [
   { field: 'title', headerName: '書籍名', width: 180 },
-  { field: 'author', headerName: '著者', width: 140 },
+  { field: 'author', headerName: '著者/編集者', width: 180 },
   { field: 'publisher', headerName: '出版社', width: 180 },
   { field: 'isbn', headerName: 'ISBN', type: 'number', width: 180 },
   { field: 'price', headerName: '値段', type: 'number', width: 180 },
@@ -22,7 +22,6 @@ export const IsbnTable = (props) => {
     setData(newData);
   }
 
-  console.log(data)
   return (
     <div style={{ width: '1200px', marginLeft: '100px' }}>
       <Box component='div' sx={{ p: 2, textAlign: 'right' }}>
