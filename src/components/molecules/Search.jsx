@@ -21,6 +21,11 @@ export const Search = (props) => {
   const [id, setId] = useState(1);
   const classes = useStyles();
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    onClickButton()
+  }
+
   const onClickButton = () => {
 	// -　があるISBNコードでも対応する 正規表現にすると全て置換できる
 	const replacedIsbn = isbn.replace(/-/g, '')
@@ -49,7 +54,7 @@ export const Search = (props) => {
 
   return (
     <>
-      <form className={classes.root} noValidate autoComplete="off">
+      <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           id="outlined-basic"
           label="isbnコード"
