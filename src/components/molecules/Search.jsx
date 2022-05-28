@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
+import styled from "styled-components";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
  * 検索コンポーネント
  */
 export const Search = ({ isbn, setIsbn, data, setData }) => {
-  const [id, setId] = useState();
+  const [id, setId] = useState("");
   const classes = useStyles();
 
   const handleSubmit = (event) => {
@@ -51,11 +52,11 @@ export const Search = ({ isbn, setIsbn, data, setData }) => {
           ...data,
         ]);
       });
-    setIsbn(undefined);
+    setIsbn("");
   };
 
   return (
-    <>
+    <Container>
       <form
         className={classes.root}
         noValidate
@@ -76,6 +77,8 @@ export const Search = ({ isbn, setIsbn, data, setData }) => {
           追加
         </Button>
       </div>
-    </>
+    </Container>
   );
 };
+
+const Container = styled.div``;
