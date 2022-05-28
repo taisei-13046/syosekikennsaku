@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
  * 検索コンポーネント
  */
 export const Search = ({ isbn, setIsbn, data, setData }) => {
-  const [id, setId] = useState();
+  const [id, setId] = useState("");
   const classes = useStyles();
 
   const handleSubmit = (event) => {
@@ -51,7 +51,7 @@ export const Search = ({ isbn, setIsbn, data, setData }) => {
           ...data,
         ]);
       });
-    setIsbn(undefined);
+    setIsbn("");
   };
 
   return (
