@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
  * 検索コンポーネント
  */
 export const Search = ({ isbn, setIsbn, data, setData }) => {
-  const [id, setId] = useState(1);
+  const [id, setId] = useState();
   const classes = useStyles();
 
   const handleSubmit = (event) => {
@@ -29,7 +29,7 @@ export const Search = ({ isbn, setIsbn, data, setData }) => {
   };
 
   const onClickButton = () => {
-    // -　があるISBNコードでも対応する 正規表現にすると全て置換できる
+    // -があるISBNコードでも対応する 正規表現にすると全て置換できる
     const replacedIsbn = isbn.replace(/-/g, "");
     // 楽天書籍検索API
     axios
@@ -50,11 +50,8 @@ export const Search = ({ isbn, setIsbn, data, setData }) => {
           },
           ...data,
         ]);
-      })
-      .catch((error) => {
-        console.log(error);
       });
-    setIsbn("");
+    setIsbn(undefined);
   };
 
   return (

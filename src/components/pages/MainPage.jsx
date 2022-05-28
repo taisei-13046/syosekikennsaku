@@ -8,16 +8,21 @@ import logo from "../../img/logo.png";
 
 export const MainPage = () => {
   const [isbn, setIsbn] = useState("");
-  const [data, setData] = useState([]);
+  const [tableData, setTableData] = useState([]);
 
   return (
     <>
       <BackGroundImg src={books} />
       <Container>
         <Logo src={logo} />
-        <Search isbn={isbn} setIsbn={setIsbn} data={data} setData={setData} />
-        <Table data={data} setData={setData} />
-        <CsvButton data={data} />
+        <Search
+          isbn={isbn}
+          setIsbn={setIsbn}
+          data={tableData}
+          setData={setTableData}
+        />
+        <Table data={tableData} setData={setTableData} />
+        <CsvButton data={tableData} />
       </Container>
     </>
   );

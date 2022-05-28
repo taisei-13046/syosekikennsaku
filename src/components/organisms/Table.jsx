@@ -13,17 +13,16 @@ const columns = [
 ];
 
 /**
- * テーブル
+ * テーブルコンポーネント
  */
 export const Table = ({ data, setData }) => {
-  let selRows = useRef([]);
+  const selRows = useRef([]);
 
   // 行の削除
   const delRows = () => {
     if (selRows.current.length === 0) return;
-    const newData = data.filter(
-      (v) => selRows.current.indexOf(v.id) === -1
-    ); /* チェックの入ったid(行)を除外する */
+    const newData = data.filter((v) => selRows.current.indexOf(v.id) === -1);
+    /* チェックの入ったid(行)を除外する */
     setData(newData);
   };
 
@@ -40,9 +39,8 @@ export const Table = ({ data, setData }) => {
         autoHeight
         checkboxSelection
         disableSelectionOnClick
-        onSelectionModelChange={(v) =>
-          (selRows.current = v)
-        } /* チェックが入った行をselRowsに入れる(配列) */
+        onSelectionModelChange={(value) => (selRows.current = value)}
+        /* チェックが入った行をselRowsに入れる(配列) */
         style={{ backgroundColor: "white" }}
       />
     </Container>
