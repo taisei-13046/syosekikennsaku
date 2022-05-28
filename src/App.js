@@ -1,11 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-import { MainPage } from './components/pages/MainPage';
+import "./App.css";
+import { MainPage } from "./components/pages/MainPage";
 
 function App() {
-  return (
-    <MainPage />
-  );
+  return <MainPage />;
 }
 
 export default App;
