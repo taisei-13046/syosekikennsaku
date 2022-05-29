@@ -51,25 +51,23 @@ export const Search = ({ isbn, setIsbn, data, setData }) => {
   };
 
   return (
-    <>
-      <form
-        className={classes.root}
-        noValidate
-        autoComplete="off"
-        onSubmit={handleSubmit}
-      >
-        <TextField
-          id="outlined-basic"
-          label="isbnコード"
-          variant="outlined"
-          value={isbn}
-          onChange={(e) => setIsbn(e.target.value)}
-          className={classes.text}
-        />
-        <Button type="submit" variant="contained" color="primary">
-          追加
-        </Button>
-      </form>
-    </>
+    <form
+      className={classes.root}
+      noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
+      <TextField
+        id="outlined-basic"
+        label="isbnコード"
+        variant="outlined"
+        value={isbn}
+        onChange={(e) => setIsbn(e.target.value)}
+        className={classes.text}
+      />
+      <Button type="submit" variant="contained" color="primary">
+        追加
+      </Button>
+    </form>
   );
 };
