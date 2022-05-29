@@ -25,10 +25,6 @@ export const Search = ({ isbn, setIsbn, data, setData }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onClickButton();
-  };
-
-  const onClickButton = () => {
     // -があるISBNコードでも対応する 正規表現にすると全て置換できる
     const replacedIsbn = isbn.replace(/-/g, "");
     // 楽天書籍検索API
@@ -70,12 +66,10 @@ export const Search = ({ isbn, setIsbn, data, setData }) => {
           onChange={(e) => setIsbn(e.target.value)}
           className={classes.text}
         />
-      </form>
-      <div className={classes.root}>
-        <Button variant="contained" color="primary" onClick={onClickButton}>
+        <Button type="submit" variant="contained" color="primary">
           追加
         </Button>
-      </div>
+      </form>
     </>
   );
 };
